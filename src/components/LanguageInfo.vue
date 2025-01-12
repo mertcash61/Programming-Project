@@ -22,7 +22,7 @@
   </div>
 </template>
 
-<script>
+<script class="language-info">
 export default {
   name: 'LanguageInfo',
   data() {

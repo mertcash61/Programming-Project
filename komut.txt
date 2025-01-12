@@ -1,0 +1,19 @@
+# 1. Git repositoryi başlat
+git init
+
+# 2. Tüm dosyaları staging area'ya ekle
+git add .
+
+# 3. İlk commit'i oluştur
+git commit -m "İlk commit: Programlama dilleri rehberi eklendi"
+
+# 4. GitHub'da oluşturduğunuz reponun URL'sini ekleyin (URL'yi kendi repo adresinizle değiştirin)
+git remote add origin https://github.com/mertcash61/Programming-Project.git
+
+# 5. Main branch'ini oluştur ve değişiklikleri push et
+git branch -M main
+git push -u origin main
+
+# GitHub kullanıcı bilgilerinizi ayarlayın
+git config --global user.name "GitHub Kullanıcı Adınız"
+git config --global user.email "github@email.com"

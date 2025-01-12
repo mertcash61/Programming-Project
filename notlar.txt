@@ -1,0 +1,42 @@
+PROGRAMLAMA DİLLERİ PROJESİ BAŞLANGIÇ NOTLARI
+=============================================
+
+1. KURULUM ADIMLARI
+------------------
+- Node.js'in bilgisayarınızda kurulu olduğundan emin olun
+- Proje klasörüne terminal üzerinden gidin
+- Bağımlılıkları yüklemek için: npm install
+- Projeyi başlatmak için: npm run serve
+
+2. PROJE YAPISI
+--------------
+/src
+  /components    -> Vue bileşenleri
+  /views         -> Sayfa görünümleri
+  /assets        -> Statik dosyalar (resimler, stiller vb.)
+
+3. ÖNEMLİ KOMUTLAR
+-----------------
+- Geliştirme sunucusu: npm run serve
+- Proje derlemesi: npm run build
+- Linting: npm run lint
+
+4. GIT KULLANIMI
+--------------
+- Değişiklikleri kaydetme: git add .
+- Commit oluşturma: git commit -m "mesajınız"
+- Uzak sunucuya gönderme: git push
+
+5. YARDIMCI KAYNAKLAR
+--------------------
+- Vue.js Dokümantasyon: https://vuejs.org/
+- Vue CLI Dokümantasyon: https://cli.vuejs.org/
+- Vue Router Dokümantasyon: https://router.vuejs.org/
+
+6. PROJE YAPISI İPUÇLARI
+-----------------------
+- Bileşen isimleri PascalCase kullanılmalı
+- Stil dosyaları için SCSS kullanılabilir
+- Vue Router ile sayfa yönlendirmeleri yapılabilir
+
+Not: Bu dosyayı projenin ihtiyaçlarına göre güncelleyebilirsiniz. 

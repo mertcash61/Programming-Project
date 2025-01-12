@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programlama Dilleri</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="programlama-dilleri/package.json">
+    <link rel="stylesheet" href="programlama-dilleri/src/assets/styles/variables.scss">
+    <link rel="stylesheet" href="programlama-dilleri/src/assets/styles/main.scss">
+    <script src="script.js" defer>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('href');
+                    const section = document.querySelector(sectionId);
+                    section.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            observer.observe(section);
+        });
+
+        document.addEventListener('scroll', () => {
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+            });
+        });
+
+        const header = document.querySelector('header');
+        const nav = document.querySelector('nav');
+        const footer = document.querySelector('footer');
+
+        const headerHeight = header.offsetHeight;
+        const navHeight = nav.offsetHeight;
+        const sectionsHeight = Array.from(sections).reduce((acc, section) => acc + section.offsetHeight, 0);
+        const footerHeight = footer.offsetHeight;
+
+        window.scrollTo({ top: headerHeight + navHeight + sectionsHeight + footerHeight, behavior: 'smooth' });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Popüler Programlama Dilleri</h1>
+        <nav>
+            <ul>
+                <li><a href="#python">Python</a></li>
+                <li><a href="#javascript">JavaScript</a></li>
+                <li><a href="#java">Java</a></li>
+                <li><a href="#cpp">C++</a></li>
+                <li><a href="#csharp">C#</a></li>
+                <li><a href="#swift">Swift</a></li>
+                <li><a href="#kotlin">Kotlin</a></li>
+                <li><a href="#ruby">Ruby</a></li>
+                <li><a href="#pascal">Pascal</a></li>
+                <li><a href="#basic">BASIC</a></li>
+                <li><a href="#cobol">COBOL</a></li>
+                <li><a href="#perl">Perl</a></li>
+                <li><a href="#ada">Ada</a></li>
+                <li><a href="#fortran">Fortran</a></li>
+                <li><a href="#delphi">Delphi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="python">
+            <h2>Python</h2>
+            <article>
+                <h3>Python Hakkında</h3>
+                <p>Python, öğrenmesi kolay ve çok yönlü bir programlama dilidir. Veri bilimi, yapay zeka ve web geliştirme gibi alanlarda yaygın olarak kullanılır.</p>
+                <ul>
+                    <li>Kolay okunabilir sözdizimi</li>
+                    <li>Zengin kütüphane desteği</li>
+                    <li>Geniş kullanım alanı</li>
+                </ul>
+                <div class="code-example">
+                    <h4>Python Sözdizimi Örneği:</h4>
+                    <pre><code class="language-python">
+# Basit bir Python fonksiyonu
+def selamla(isim):
+    return f"Merhaba {isim}!"
+
+# Liste işlemleri
+sayilar = [1, 2, 3, 4, 5]
+kareler = [x**2 for x in sayilar]
+
+# Sınıf tanımlama
+class Kullanici:
+    def __init__(self, isim, yas):
+        self.isim = isim
+        self.yas = yas
+                    </code></pre>
+                </div>
+            </article>
+        </section>
+
+        <section id="javascript">
+            <h2>JavaScript</h2>
+            <article>
+                <h3>JavaScript Hakkında</h3>
+                <p>JavaScript, web geliştirmenin temel taşlarından biridir. Hem frontend hem de backend geliştirmede kullanılabilir.</p>
+                <ul>
+                    <li>Web tarayıcılarında çalışır</li>
+                    <li>Node.js ile sunucu tarafı geliştirme</li>
+                    <li>Dinamik web siteleri oluşturma</li>
+                </ul>
+                <div class="code-example">
+                    <h4>JavaScript Sözdizimi Örneği:</h4>
+                    <pre><code class="language-javascript">
+// Modern JavaScript özellikleri
+const selamla = (isim) => {
+    return `Merhaba ${isim}!`;
+};
+
+// Dizi metodları
+const sayilar = [1, 2, 3, 4, 5];
+const kareler = sayilar.map(sayi => sayi ** 2);
+
+// Class tanımlama
+class Kullanici {
+    constructor(isim, yas) {
+        this.isim = isim;
+        this.yas = yas;
+    }
+}
+                    </code></pre>
+                </div>
+            </article>
+        </section>
+
+        <section id="java">
+            <h2>Java</h2>
+            <article>
+                <h3>Java Hakkında</h3>
+                <p>Java, kurumsal uygulamalar ve Android uygulama geliştirmede yaygın olarak kullanılan güçlü bir dildir.</p>
+                <ul>
+                    <li>Platform bağımsız çalışma</li>
+                    <li>Nesne yönelimli programlama</li>
+                    <li>Güvenli ve güvenilir</li>
+                </ul>
+                <div class="code-example">
+                    <h4>Java Sözdizimi Örneği:</h4>
+                    <pre><code class="language-java">
+public class Ornek {
+    public String selamla(String isim) {
+        return "Merhaba " + isim + "!";
+    }
+
+    // Ana method
+    public static void main(String[] args) {
+        ArrayList<Integer> sayilar = new ArrayList<>();
+        sayilar.add(1);
+        sayilar.add(2);
+        sayilar.add(3);
+    }
+}
+                    </code></pre>
+                </div>
+            </article>
+        </section>
+
+        <section id="cpp">
+            <h2>C++</h2>
+            <article>
+                <h3>C++ Hakkında</h3>
+                <p>C++, yüksek performanslı uygulamalar ve sistem programlama için tercih edilen bir dildir.</p>
+                <ul>
+                    <li>Hızlı çalışma zamanı</li>
+                    <li>Donanıma yakın programlama</li>
+                    <li>Oyun geliştirmede yaygın kullanım</li>
+                </ul>
+                <div class="code-example">
+                    <h4>C++ Sözdizimi Örneği:</h4>
+                    <pre><code class="language-cpp">
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Ornek {
+public:
+    string selamla(string isim) {
+        return "Merhaba " + isim + "!";
+    }
+};
+
+int main() {
+    vector<int> sayilar = {1, 2, 3, 4, 5};
+    for(int sayi : sayilar) {
+        cout << sayi << endl;
+    }
+    return 0;
+}
+                    </code></pre>
+                </div>
+            </article>
+        </section>
+
+        <section id="csharp">
+            <h2>C#</h2>
+            <article>
+                <h3>C# Hakkında</h3>
+                <p>C#, Microsoft tarafından geliştirilen modern ve nesne yönelimli bir programlama dilidir. Windows uygulamaları ve oyun geliştirmede popülerdir.</p>
+                <ul>
+                    <li>.NET platformu ile tam entegrasyon</li>
+                    <li>Unity oyun motoru desteği</li>
+                    <li>Güçlü tip sistemi ve modern özellikler</li>
+                </ul>
+                <div class="code-example">
+                    <h4>C# Sözdizimi Örneği:</h4>
+                    <pre><code class="language-csharp">
+using System;
+using System.Collections.Generic;
+
+public class Program {
+    public string Selamla(string isim) {
+        return $"Merhaba {isim}!";
+    }
+
+    public static void Main() {
+        var sayilar = new List<int> { 1, 2, 3, 4, 5 };
+        sayilar.ForEach(Console.WriteLine);
+    }
+}
+                    </code></pre>
+                </div>
+            </article>
+        </section>
+
+        <section id="swift">
+            <h2>Swift</h2>
+            <article>
+                <h3>Swift Hakkında</h3>
+                <p>Swift, Apple tarafından iOS ve macOS uygulamaları geliştirmek için tasarlanmış modern bir programlama dilidir.</p>
+                <ul>
+                    <li>Hızlı ve güvenli performans</li>
+                    <li>iOS ve macOS uygulama geliştirme</li>
+                    <li>Modern sözdizimi ve güvenlik özellikleri</li>
+                </ul>
+                <div class="code-example">
+                    <h4>Swift Sözdizimi Örneği:</h4>
+                    <pre><code class="language-swift">
+// Swift fonksiyon
+func selamla(isim: String) -> String {
+    return "Merhaba \(isim)!"
+}
+
+// Dizi işlemleri
+let sayilar = [1, 2, 3, 4, 5]
+let kareler = sayilar.map { $0 * $0 }
+
+// Class tanımlama
+class Kullanici {
+    var isim: String
+    var yas: Int
+    
+    init(isim: String, yas: Int) {
+        self.isim = isim
+        self.yas = yas
+    }
+}
+                    </code></pre>
+                </div>
+            </article>
+        </section>
+
+        <section id="kotlin">
+            <h2>Kotlin</h2>
+            <article>
+                <h3>Kotlin Hakkında</h3>
+                <p>Kotlin, JetBrains tarafından geliştirilen ve Android uygulama geliştirmede tercih edilen modern bir programlama dilidir.</p>
+                <ul>
+                    <li>Java ile tam uyumluluk</li>
+                    <li>Android geliştirme için resmi dil</li>
+                    <li>Daha az kod yazarak daha çok iş yapma</li>
+                </ul>
+                <div class="code-example">
+                    <h4>Kotlin Sözdizimi Örneği:</h4>
+                    <pre><code class="language-kotlin">
+// Kotlin fonksiyon
+fun selamla(isim: String): String {
+    return "Merhaba $isim!"
+}
+
+// Liste işlemleri
+val sayilar = listOf(1, 2, 3, 4, 5)
+val kareler = sayilar.map { it * it }
+
+// Data class
+data class Kullanici(
+    val isim: String,
+    val yas: Int
+)
+                    </code></pre>
+                </div>
+            </article>
+        </section>
+
+        <section id="ruby">
+            <h2>Ruby</h2>
+            <article>
+                <h3>Ruby Hakkında</h3>
+                <p>Ruby, basit ve zarif sözdizimi ile tanınan, web geliştirme için popüler bir programlama dilidir.</p>
+                <ul>
+                    <li>Ruby on Rails framework'ü</li>
+                    <li>Temiz ve okunabilir kod yapısı</li>
+                    <li>Zengin gem (paket) ekosistemi</li>
+                </ul>
+                <div class="code-example">
+                    <h4>Ruby Sözdizimi Örneği:</h4>
+                    <pre><code class="language-ruby">
+# Ruby method
+def selamla(isim)
+  "Merhaba #{isim}!"
+end
+
+# Dizi işlemleri
+sayilar = [1, 2, 3, 4, 5]
+kareler = sayilar.map { |x| x ** 2 }
+
+# Sınıf tanımlama
+class Kullanici
+  def initialize(isim, yas)
+    @isim = isim
+    @yas = yas
+  end
+end
+                    </code></pre>
+                </div>
+            </article>
+        </section>
+
+        <section id="pascal">
+            <h2>Pascal</h2>
+            <article>
+                <h3>Pascal Hakkında</h3>
+                <p>Pascal, eğitim amaçlı olarak geliştirilmiş, yapısal programlama paradigmasını destekleyen bir programlama dilidir.</p>
+                <ul>
+                    <li>Güçlü tip sistemi</li>
+                    <li>Kolay okunabilir sözdizimi</li>
+                    <li>Yapısal programlama desteği</li>
+                </ul>
+                <div class="code-example">
+                    <h4>Pascal Sözdizimi Örneği:</h4>
+                    <pre><code class="language-pascal">
+program HelloWorld;
+var
+  name: string;
+begin
+  writeln('İsminizi girin:');
+  readln(name);
+  writeln('Merhaba ', name, '!');
+end.
+                </code></pre>
+                </div>
+            </article>
+        </section>
+
+        <section id="basic">
+            <h2>BASIC</h2>
+            <article>
+                <h3>BASIC Hakkında</h3>
+                <p>BASIC, başlangıç seviyesindeki programcılar için tasarlanmış, öğrenmesi kolay bir programlama dilidir.</p>
+                <ul>
+                    <li>Basit sözdizimi</li>
+                    <li>Yorumlanan dil</li>
+                    <li>Eğitim odaklı tasarım</li>
+                </ul>
+                <div class="code-example">
+                    <h4>BASIC Sözdizimi Örneği:</h4>
+                    <pre><code class="language-basic">
+10 PRINT "İsminizi girin:"
+20 INPUT NAME$
+30 PRINT "Merhaba "; NAME$
+40 END
+                </code></pre>
+                </div>
+            </article>
+        </section>
+
+        <section id="cobol">
+            <h2>COBOL</h2>
+            <article>
+                <h3>COBOL Hakkında</h3>
+                <p>COBOL, iş dünyası için geliştirilmiş, veri işleme odaklı bir programlama dilidir.</p>
+                <ul>
+                    <li>İş odaklı sözdizimi</li>
+                    <li>Güçlü veri işleme yetenekleri</li>
+                    <li>Mainframe sistemlerle uyumluluk</li>
+                </ul>
+                <div class="code-example">
+                    <h4>COBOL Sözdizimi Örneği:</h4>
+                    <pre><code class="language-cobol">
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO-WORLD.
+       ENVIRONMENT DIVISION.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 NAME PIC X(30).
+       PROCEDURE DIVISION.
+           DISPLAY "İsminizi girin:".
+           ACCEPT NAME.
+           DISPLAY "Merhaba " NAME.
+           STOP RUN.
+                </code></pre>
+                </div>
+            </article>
+        </section>
+
+        <section id="perl">
+            <h2>Perl</h2>
+            <article>
+                <h3>Perl Hakkında</h3>
+                <p>Perl, metin işleme ve sistem yönetimi için güçlü özelliklere sahip bir programlama dilidir.</p>
+                <ul>
+                    <li>Güçlü metin işleme</li>
+                    <li>Regular expression desteği</li>
+                    <li>Sistem yönetimi araçları</li>
+                </ul>
+                <div class="code-example">
+                    <h4>Perl Sözdizimi Örneği:</h4>
+                    <pre><code class="language-perl">
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+print "İsminizi girin: ";
+my $name = <STDIN>;
+chomp $name;
+print "Merhaba $name!\n";
+                </code></pre>
+                </div>
+            </article>
+        </section>
+
+        <section id="ada">
+            <h2>Ada</h2>
+            <article>
+                <h3>Ada Hakkında</h3>
+                <p>Ada, güvenilirlik ve güvenlik odaklı, askeri ve havacılık uygulamaları için geliştirilmiş bir dildir.</p>
+                <ul>
+                    <li>Güçlü tip kontrolü</li>
+                    <li>Paralel programlama desteği</li>
+                    <li>Yüksek güvenilirlik</li>
+                </ul>
+                <div class="code-example">
+                    <h4>Ada Sözdizimi Örneği:</h4>
+                    <pre><code class="language-ada">
+with Ada.Text_IO; use Ada.Text_IO;
+procedure Hello is
+   Name : String(1..30);
+   Last : Natural;
+begin
+   Put_Line("İsminizi girin:");
+   Get_Line(Name, Last);
+   Put_Line("Merhaba " & Name(1..Last) & "!");
+end Hello;
+                </code></pre>
+                </div>
+            </article>
+        </section>
+
+        <section id="fortran">
+            <h2>Fortran</h2>
+            <article>
+                <h3>Fortran Hakkında</h3>
+                <p>Fortran, bilimsel hesaplamalar için geliştirilmiş ilk yüksek seviyeli programlama dilidir.</p>
+                <ul>
+                    <li>Bilimsel hesaplama optimizasyonu</li>
+                    <li>Matris işlemleri desteği</li>
+                    <li>Yüksek performans</li>
+                </ul>
+                <div class="code-example">
+                    <h4>Fortran Sözdizimi Örneği:</h4>
+                    <pre><code class="language-fortran">
+program hello
+    implicit none
+    character(len=30) :: name
+    
+    print *, "İsminizi girin:"
+    read *, name
+    print *, "Merhaba ", trim(name), "!"
+end program hello
+                </code></pre>
+                </div>
+            </article>
+        </section>
+
+        <section id="delphi">
+            <h2>Delphi</h2>
+            <article>
+                <h3>Delphi Hakkında</h3>
+                <p>Delphi, hızlı uygulama geliştirme için tasarlanmış, Pascal tabanlı bir programlama dilidir.</p>
+                <ul>
+                    <li>Görsel programlama araçları</li>
+                    <li>Hızlı uygulama geliştirme</li>
+                    <li>Veritabanı entegrasyonu</li>
+                </ul>
+                <div class="code-example">
+                    <h4>Delphi Sözdizimi Örneği:</h4>
+                    <pre><code class="language-delphi">
+program HelloWorld;
+{$APPTYPE CONSOLE}
+uses
+  SysUtils;
+var
+  name: string;
+begin
+  Write('İsminizi girin: ');
+  ReadLn(name);
+  WriteLn('Merhaba ' + name + '!');
+  ReadLn;
+end.
+                </code></pre>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Programlama Dilleri Rehberi - Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html> 
